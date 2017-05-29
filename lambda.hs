@@ -1,4 +1,3 @@
-import Debug.Trace
 
 
 data Expression = Var Char
@@ -144,4 +143,6 @@ compileToLeft p1 p2 = let exps = (reverseApp' p2) in
         reverseApp' (App f b) = (compile f) : (reverseApp' b)
         reverseApp' p = [compile p]
 
+lambda :: String -> Expression
+lambda = compile . parse
 
