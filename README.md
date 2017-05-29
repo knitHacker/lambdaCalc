@@ -37,3 +37,14 @@ Reduce does not stop when passed a diverging expression.
 > reduce $ lambda "(\\x.xx)(\\x.xx)"
 
 will try to reduce forever and will need to be stopped.
+
+The function apply takes 2 strings of lambda expressions and applys the first to the second.
+
+> apply "\\x.x" "y"
+
+This produces an expression as output.
+
+The function applyMix applies an expression to a string (to be interpretted as an expression)
+
+> let e = lambda "(\\x.x)(\\y.yy)"
+> applyMix (reduce e) "z"
