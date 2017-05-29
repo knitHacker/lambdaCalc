@@ -75,6 +75,12 @@ applyExp v@(Var _) e2 = Application (First v (reduce e2))
 applyExp (Application a) e2 = Application (Apply a e2)
 applyExp (Function a) e2 = reduce (betaReduction a e2)
 
+apply :: String -> String -> Expression
+apply e1 e2 = applyExp (lambda e1) (lambda e2)
+
+applyMix :: Expression -> String -> Expression
+applyMix e1 e2 = applyExp e1 (lambda e2)
+
 reduce :: Expression -> Expression
 reduce v@(Var _) = v
 reduce (Function (Abstraction c e)) = Function (Abstraction c (reduce e))
