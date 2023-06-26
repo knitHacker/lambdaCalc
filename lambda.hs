@@ -111,7 +111,7 @@ parse l = let (tree, rmd) = parse' l in
                                              (')':nt) -> let (more, rest2) = parse' nt in
                                                     (Paren paren more, rest2)
                                              _ -> error ("Paren: No case for " ++ rest)
-                                             
+
         parse' ('\\' : tl) = let (param, rest) = parse' tl in
                                 case rest of [] -> error "No body for function"
                                              ('.':nt) -> let (body, rest2) = parse' nt in
@@ -124,7 +124,7 @@ parse l = let (tree, rmd) = parse' l in
 --        parse' (c : s@('(' : tl)) = (Const c, s)
         parse' (c : tl) = let (exp, rest) = parse' tl in
                             (App (Const c) exp, rest)
-                            
+
 
 compile :: ParseTree -> Expression
 compile (Paren f End) = compile f

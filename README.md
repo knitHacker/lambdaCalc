@@ -10,15 +10,15 @@ ghci lambda.hs
 
 To define an expression use the lambda function
 
-> lambda "\\x.x"
+> lambda "\\\\x.x"
 
 If you want to store the expression
 
-> let e = lambda "(\\x.xx)y"
+> let e = lambda "(\\\\x.xx)y"
 
-In the interpreter you must use two '\' since it is an escape character.
+In the interpreter you must use two '\\' since it is an escape character.
 
-\ is used in the place of λ 
+\ is used in the place of λ
 
 Variables are one character that aren't '(', ')', '\', '.'
 
