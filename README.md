@@ -47,4 +47,5 @@ This produces an expression as output.
 The function applyMix applies an expression to a string (to be interpretted as an expression)
 
 > let e = lambda "(\\\\x.x)(\\\\y.yy)"
+>
 > applyMix (reduce e) "z"
